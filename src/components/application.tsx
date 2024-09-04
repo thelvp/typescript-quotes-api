@@ -22,12 +22,11 @@ export const fetchQuotes = async (count: number) => {
 const Application = () => {
   // Add <Quote[]> to indicate that the quotes will be in an array
   const [quotes, setQuotes] = useState<Quote[]>([]);
-  const [count, setCount] = useState(10);
 
   if (!quotes) return <Loading />;
   return (
     <main className="mx-auto w-full max-w-2xl py-16">
-      <Quotes count={count} onSubmit={() => fetchQuotes(count).then(setQuotes)}>
+      <Quotes setQuotes={setQuotes}>
         {quotes.map((quote) => {
           return (
             <InspirationalQuote
