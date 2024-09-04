@@ -1,3 +1,3 @@
-# React and TypeScript Example
+# Credits
 
-This is an exmaple application from Steve's React and TypeScript course.
+This is an application made by doing Steve's React and TypeScript course on Frontend Masters.
