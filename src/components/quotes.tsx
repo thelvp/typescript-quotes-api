@@ -1,12 +1,24 @@
-import { useState } from 'react';
+import { PropsWithChildren } from 'react';
 
-const Quotes = ({ children, count, onSubmit, onChange }: any) => {
+type QuotesProps = {
+  count: number;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onSubmit: React.FormEventHandler<HTMLFormElement>;
+  // Children doesn't have to be specified here; PropsWithChildren takes care of that below.
+};
+
+const Quotes = ({
+  children,
+  count,
+  onSubmit,
+  onChange,
+}: PropsWithChildren<QuotesProps>) => {
   return (
     <section className="flex flex-col gap-8">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          onChange(e);
+          onSubmit(e);
         }}
       >
         <label htmlFor="number-of-quotes-to-load" className="block">
